@@ -1,0 +1,39 @@
+{
+  "name": "takeaway",
+  "version": "0.0.1",
+  "description": "The takeaway assignment.",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "dev-server": "./node_modules/.bin/webpack-dev-server --port 10590 --progress --colors --hot",
+    "test": "test"
+  },
+  "keywords": [
+    "takeaway",
+    "assignment",
+    "anirvan"
+  ],
+  "author": "anirvan.bhaduri@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^2.0.0",
+    "extract-loader": "^3.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.10.0",
+    "react-hot-loader": "^4.5.3",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.2.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}
