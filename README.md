@@ -13,6 +13,10 @@ We are also going to omit the use of Redux in this assignment, as it is quite si
 not really require it. If I was to extend the assignment further to have further nested components
 etc, then redux was become essential for good maintainability.
 
+The frontend look has been kept very simple and aims to demonstrate the way css would be structured
+in a larger project. Usually, one would use css frameworks and build on them. I have decided to go
+for a bare bones approach for this assignment, as I aim to demostrate understanding of sass/css.
+
 ### Prerequisites
 
 You will need `npm`.
