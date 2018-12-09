@@ -1,10 +1,20 @@
 import * as React from 'react';
 
-import {sampleLoad} from "./SampleLoad/SampleLoad";
 import {RestaurantList} from "./RestaurantList/RestaurantList";
+import {Search} from "./Filter/Search/Search";
 
 // The sample data.
 const sample = require('../../../dist/Sample.json');
+
+/**
+ * Define the format for the TakeawayApp state.
+ *
+ * @interface TakeawayAppState
+ */
+interface TakeawayAppState {
+    restaurants: [];
+    filterCriteria: {};
+}
 
 /**
  * The Takeaway app.
@@ -22,25 +32,66 @@ const sample = require('../../../dist/Sample.json');
  * @version 0.0.1
  */
 export class TakeawayApp extends React.Component {
-    /**
-     * A list of restaurants.
-     *
-     * @property array<RestaurantList> restaurants
-     */
-    restaurants: JSX.Element[];
 
     /**
-     * Takeaway App constructor.
+     * A list of restaurants
      *
-     * Lets load in the sample JSON here.
+     * @property [] restaurants
+     */
+    restaurants: [] = [];
+
+    /**
+     * Initialise app state.
+     *
+     * @property TakeawayAppState state
+     *
+     * - searchCriteria - a list of search criteria defining what to display
+     *                      and the order to display them
+     * - restaurants - a list of restaurants. This is expected to stay constant through
+     *                  this app.
+     */
+    state: TakeawayAppState = {
+        filterCriteria: {},
+        restaurants: [],
+    };
+
+    /**
+     * Construct TakeawayApp.
+     *
+     * Lets load in the restaurants here.
      *
      * @param props
      */
     constructor(props: any) {
         super(props);
 
-        // Load in the restaurants.
-        this.restaurants = sampleLoad(sample);
+        // Load sample restaurants.
+        const { restaurants } = sample;
+        this.state.restaurants = restaurants;
+
+        // Set default sort criteria
+        // ...
+
+        // Bind handlers.
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+    }
+
+    /**
+     * Using the event, change the search filterCriteria
+     * to use the updated search value.
+     *
+     * Empty means no search.
+     *
+     * @param e
+     */
+    handleSearchChange(e: any) {
+        if (e.valueOf() === null) {
+            // Lets remove the search sort criteria if this is the case.
+            // ...
+        }
+
+        // Otherwise lets override the sort filter criteria for search.
+        this.setState({});
     }
 
     /**
@@ -51,9 +102,13 @@ export class TakeawayApp extends React.Component {
      * @return JSX
      */
     render() {
+        const filterCriteria = this.state.filterCriteria;
+        const restaurants = this.state.restaurants;
+
         return (
             <div>
-                <RestaurantList restaurants={this.restaurants} />
+                <Search filterHandler={this.handleSearchChange} />
+                <RestaurantList restaurants={restaurants} filterCriteria={filterCriteria} />
             </div>
         )
     }

@@ -25,12 +25,11 @@ export enum Status {
 export interface RestaurantProps {
     name: string;
     status: string;
-    sortingValues: []; // TODO: correct when sorting interface defined
+    sortingValues?: {}// TODO: correct when sorting interface defined
 }
 
 /**
- * The Restaurant class represents a restaurant and
- * is responsible for rendering the restaurant's detail.
+ * Render a restaurant entry.
  *
  * @class Restaurant
  *
@@ -38,15 +37,10 @@ export interface RestaurantProps {
  * @since 9th Dec 2018
  * @version 0.0.1
  */
-export class Restaurant extends React.Component<RestaurantProps, {}> {
-
-    // TODO: do we need more here? if not, turn it into a function
-
-    render() {
-        return (
-            <div>
-                {this.props.name} {this.props.status}
-            </div>
-        )
-    }
-}
+export const Restaurant = (props: RestaurantProps) => {
+    return (
+        <div>
+            {props.name} {props.status}
+        </div>
+    );
+};

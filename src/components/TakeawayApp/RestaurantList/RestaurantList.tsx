@@ -10,8 +10,12 @@ import {Restaurant} from "./Restaurant/Restaurant";
  * @property array<Restaurant> An array containing only Restaurants.
  */
 export interface RestaurantListProps {
+    restaurants: [];
+    filterCriteria?: {};
+}
+
+interface RestaurantListState {
     restaurants: JSX.Element[];
-    sortCriteria?: any; // TODO: change this to sortCriteria object later
 }
 
 /**
@@ -27,6 +31,38 @@ export interface RestaurantListProps {
 export class RestaurantList extends React.Component<RestaurantListProps, {}> {
 
     /**
+     * Component state.
+     *
+     * @property state
+     *
+     * - restaurants - this value will be updated whenever the filter
+     *                  criteria changes.
+     */
+    state: RestaurantListState = {
+        restaurants: [],
+    };
+
+    /**
+     * RestaurantList constructor.
+     *
+     * @param props
+     */
+    constructor(props: RestaurantListProps) {
+        super(props);
+
+        this.state.restaurants = this.props.restaurants.map(
+            ({name, status, sortingValues}): JSX.Element => {
+                return <Restaurant
+                    key={name}
+                    name={name}
+                    status={status}
+                    sortingValues={sortingValues}
+                />;
+            }
+        );
+    }
+
+    /**
      * Render the component.
      *
      * @return JSX
@@ -34,7 +70,7 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
     render() {
         return (
             <div>
-                {this.props.restaurants}
+                {this.state.restaurants}
             </div>
         )
     }
