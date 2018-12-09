@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Hello } from './components/Hello/Hello';
+import {TakeawayApp} from "./components/TakeawayApp/TakeawayApp";
 
+// Lets render are app on the DOM.
 ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
-    document.getElementById("example")
+    <TakeawayApp />,
+    document.getElementById("takeaway-app")
 );

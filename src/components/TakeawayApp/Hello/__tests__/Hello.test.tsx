@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
 // SUT
-import { Hello } from '../Hello';
+import {Hello} from '../Hello';
 
 /**
  * Hello component tests.

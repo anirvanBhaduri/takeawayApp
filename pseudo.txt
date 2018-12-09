@@ -1,0 +1,62 @@
+-------------------------
+Container components:
+
+Interface: LoadableData
+    restaurants: array
+
+SampleLoad: <array<LoadableData>>
+    - convert(...sample)
+
+AppContainer:
+    - load(loadable: array<LoadableData>)
+    - render()
+
+-- sorting
+
+Interface: Sort
+    - criteria: array
+
+FavouritesSort<Sort>
+OpeningsStateSort<Sort>
+SearchSort<Sort>
+
+Interface: SortValue
+    - formula: func
+    - name: string
+
+Sorting<Sort>:
+    - sortingValues: array<SortValue>
+
+BestMatch<SortValue>
+Newest<SortValue>
+RatingAverage<SortValue>
+Distance<SortValue>
+Popularity<SortValue>
+AverageProductPrice<SortValue>
+DeliveryCost<SortValue>
+MinimumCost<SortValue>
+
+
+
+-------------------------
+Presentational components:
+
+Search
+    - filter(criteria: Sorting): RestaurantList
+
+RestaurantView:
+    - restaurants: RestaurantList
+
+RestaurantList
+    - sort(...criteria): array<Restaurant>
+
+Restaurant<LoadableData>
+    props:
+        - name
+        - openingState
+        - sortId
+        - isFavourite
+
+    - getName()
+    - favourite()
+    - unFavourite()
