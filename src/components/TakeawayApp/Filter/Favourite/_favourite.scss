@@ -1,0 +1,12 @@
+/// Favourite component styles.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../../../UI/_colour_constants.scss';
+@import '../Sort/_sort.scss';
+
+// The Favourite component's styles
+.favourite {
+  @extend .sort;
+}

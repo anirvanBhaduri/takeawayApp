@@ -1,0 +1,28 @@
+/// Restaurant component styles.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../../../UI/_colour_constants.scss';
+@import '../../../UI/size_constants';
+
+// The Restaurant's styles
+.restaurant {
+  @include input-styles(30px, $app-body-width - 10);
+  padding-top: 10px;
+  border: 1px solid $takeaway-color;
+  margin: 5px;
+}
+
+.restaurant__name {
+  float: left;
+  width: $app-body-width / 2;
+  font-family: inherit;
+}
+
+.restaurant__status {
+  float: left;
+  font-style: italic;
+  width: $app-body-width / 6;
+  font-family: inherit;
+}

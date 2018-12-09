@@ -138,10 +138,13 @@ export class TakeawayApp extends React.Component {
         const search = this.state.filterCriteria.search;
 
         return (
-            <div>
-                <Search searchTerm={search.getSearchTerm()} filterHandler={this.handleSearchChange} />
-                <Sort sortType={''} filterHandler={this.handleSortChange} />
-                <RestaurantList restaurants={restaurants} filterCriteria={filterCriteria} />
+            <div className={'takeaway-app'} >
+                <h2 className={'takeaway-app__title'} >Find a Restaurant</h2>
+                <div className={'takeaway-app__body'} >
+                    <Search searchTerm={search.getSearchTerm()} filterHandler={this.handleSearchChange} />
+                    <Sort sortType={''} filterHandler={this.handleSortChange} />
+                    <RestaurantList restaurants={restaurants} filterCriteria={filterCriteria} />
+                </div>
             </div>
         )
     }

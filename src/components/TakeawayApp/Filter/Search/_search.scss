@@ -1,0 +1,19 @@
+/// Search component styles.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../../../UI/_colour_constants.scss';
+@import '../../../UI/size_constants';
+
+// The search bar's styles
+.search {
+  float: left;
+  width: 550px;
+}
+
+// The search bar's input's styles
+.search__input {
+  display: inline-block;
+  @include input-styles(28px, 545px);
+}

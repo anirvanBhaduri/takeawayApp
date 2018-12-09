@@ -1,0 +1,25 @@
+/// Size constants.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import 'colour_constants';
+
+/// Generic input styles
+///
+/// @param height The height of the input
+/// @param widtht The width of the input
+@mixin input-styles($height, $width) {
+  height: $height;
+  width: $width;
+  background-color: white;
+  font-family: inherit;
+  border: 2px solid $takeaway-color;
+  border-radius: 5px;
+}
+
+/// App body height
+$app-body-height: 550px;
+
+/// App body width
+$app-body-width: 900px;

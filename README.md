@@ -9,8 +9,9 @@ To keep things simple and spend a reasonable amount of time on this assignment, 
 omit having a database and backend. A front end (javascript only) will be sufficient to meet the 
 requirements.
 
-Normally, we would also use tslint with typescript, however, for simplicity's sake, we are going to
-omit tslint for this project.
+We are also going to omit the use of Redux in this assignment, as it is quite simple and does
+not really require it. If I was to extend the assignment further to have further nested components
+etc, then redux was become essential for good maintainability.
 
 ### Prerequisites
 

@@ -97,7 +97,7 @@ export class Sort extends Filter<SortProps> {
         const handler = this.props.filterHandler;
 
         return (
-            <select onChange={handler}>
+            <select className={'sort'} onChange={handler}>
                 {this.sortables}
             </select>
         );

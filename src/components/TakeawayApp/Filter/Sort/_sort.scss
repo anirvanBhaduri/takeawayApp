@@ -1,0 +1,18 @@
+/// Sort component styles.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../../../UI/_colour_constants.scss';
+@import '../../../UI/_size_constants.scss';
+
+// The sort dropdown's styles
+.sort {
+  @include input-styles(28px, 250px);
+  background: $takeaway-color;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.2em;
+  font-weight: bold;
+}

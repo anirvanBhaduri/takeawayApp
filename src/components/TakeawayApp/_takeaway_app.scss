@@ -1,0 +1,34 @@
+/// TakeAwayApp component styles.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../UI/_colour_constants.scss';
+@import '../UI/_font_constants.scss';
+@import '../UI/size_constants';
+
+// Render main container background to red
+.takeaway-app {
+  background-color: $theme-background;
+  height: $app-body-height;
+  width: auto;
+  font-family: $container-font-family;
+  border: 2px solid $takeaway-color;
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+}
+
+// Title element for takeaway component
+.takeaway-app__title {
+  font-style: italic;
+}
+
+// Body element for takeaway component
+.takeaway-app__body {
+  width: $app-body-width;
+  height: $app-body-height - 50;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}

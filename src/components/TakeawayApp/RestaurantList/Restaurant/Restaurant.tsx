@@ -65,10 +65,21 @@ const unFavouriteMe = 'Un favourite me!';
  * @return JSX
  */
 export const Favourite = (props: FavouriteProps) => {
+    // For simplicity, we are going to make this a text based button
+    // instead of an image.
     const favourite: string = props.favourite ? unFavouriteMe : favouriteMe;
 
     return (
-        <button value={props.name} onClick={props.clickHandler}>
+        <button
+            value={props.name}
+
+            // We can also place a modifier here to change the appearance of the
+            // button depending on the favourite state. To keep things simple,
+            // we are going to omit the modifier here.
+            className={'favourite'}
+
+            onClick={props.clickHandler}
+        >
             {favourite}
         </button>
     );
@@ -83,8 +94,13 @@ export const Favourite = (props: FavouriteProps) => {
  */
 export const Restaurant = (props: RestaurantProps) => {
     return (
-        <div>
-            {props.name} {props.status}
+        <div className={'restaurant'} >
+            <div className={'restaurant__name'} >
+                {props.name}
+            </div>
+            <div className={'restaurant__status'} >
+                {props.status}
+            </div>
             <Favourite
                 name={props.name}
                 favourite={props.favourite}

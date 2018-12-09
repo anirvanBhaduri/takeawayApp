@@ -95,10 +95,12 @@ export class Search extends Filter<SearchProps> {
         const searchTerm = this.props.searchTerm;
 
         return (
-            <div>
+            <div className={'search'} >
                 <input
+                    className={'search__input'}
                     onChange={handler}
                     value={searchTerm}
+                    placeholder={'Search'}
                     type="input"
                 />
             </div>

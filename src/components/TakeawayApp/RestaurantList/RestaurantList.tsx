@@ -118,7 +118,7 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
         );
 
         return (
-            <div>
+            <div className={'restaurant-list'} >
                 {restaurants}
             </div>
         )

@@ -1,0 +1,18 @@
+/// Restaurant List component styles.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../../UI/_colour_constants.scss';
+@import '../../UI/size_constants';
+
+// The Restaurant List's styles
+.restaurant-list {
+  margin-top: 10px;
+  padding: 0.1em;
+  width: 900px;
+  display: inline-block;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: $app-body-height - 100;
+}
