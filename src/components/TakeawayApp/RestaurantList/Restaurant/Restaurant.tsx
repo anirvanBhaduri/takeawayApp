@@ -7,10 +7,24 @@ import * as React from 'react';
  *
  * @enum Status
  */
-export enum Status {
-    Open = 'open',
-    Closed = 'closed',
-    OrderAhead = 'order ahead',
+export const Status: {[index: string]: number} = {
+    'open': 0,
+    'closed': 1,
+    'order ahead': 2,
+};
+
+/**
+ * Favourite Props interface.
+ *
+ * Ensures a click handler is passed through to the
+ * Favourite component.
+ *
+ * @interface FavouriteProps
+ */
+interface FavouriteProps {
+    clickHandler: (e: any) => void;
+    name: string;
+    favourite?: boolean;
 }
 
 /**
@@ -22,8 +36,7 @@ export enum Status {
  * @property Status status
  * @property SortValues sortingValues
  */
-export interface RestaurantProps {
-    name: string;
+export interface RestaurantProps extends FavouriteProps {
     status: string;
     sortingValues?: {
         [index: string]: number,
@@ -31,18 +44,52 @@ export interface RestaurantProps {
 }
 
 /**
+ * Favourite me message.
+ *
+ * @var string
+ */
+const favouriteMe = 'Favourite Me!';
+
+/**
+ * Un Favourite me message.
+ *
+ * @var string
+ */
+const unFavouriteMe = 'Un favourite me!';
+
+/**
+ * Render the favourite button.
+ *
+ * @param props
+ *
+ * @return JSX
+ */
+export const Favourite = (props: FavouriteProps) => {
+    const favourite: string = props.favourite ? unFavouriteMe : favouriteMe;
+
+    return (
+        <button value={props.name} onClick={props.clickHandler}>
+            {favourite}
+        </button>
+    );
+};
+
+/**
  * Render a restaurant entry.
  *
- * @class Restaurant
+ * @param props
  *
- * @author Anirvan Bhaduri
- * @since 9th Dec 2018
- * @version 0.0.1
+ * @return JSX
  */
 export const Restaurant = (props: RestaurantProps) => {
     return (
         <div>
             {props.name} {props.status}
+            <Favourite
+                name={props.name}
+                favourite={props.favourite}
+                clickHandler={props.clickHandler}
+            />
         </div>
     );
 };

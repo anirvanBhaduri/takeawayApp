@@ -21,7 +21,9 @@ export interface SortFilterProps {
 /**
  * A generic sort filter method.
  *
- * Used for most sorts.
+ * Used for most sorts. For this filter function,
+ * we are going with the assumption that the HIGHER number should be
+ * closer to the top and the LOWER should be close to the bottom.
  *
  * @param firstList
  * @param secondList
@@ -34,12 +36,38 @@ const sortFilter = (
     secondList: RestaurantProps,
     sortKey: string
 ): number => {
+    return secondList.sortingValues[sortKey] - firstList.sortingValues[sortKey];
+};
 
-    if (firstList.sortingValues[sortKey] > 0) {
-        console.log('asdfadf');
-    }
+/**
+ * Filter method for sorting by top restaurants.
+ *
+ * @param firstList
+ * @param secondList
+ *
+ * @return number
+ */
+const topRestaurant = (
+    firstList: RestaurantProps,
+    secondList: RestaurantProps
+): number => {
+    // extract values required for formula - firstList
+    const {
+        distance: fDistance,
+        popularity: fPopularity,
+        ratingAverage: fRatingAverage
+    } = firstList.sortingValues;
 
-    return -1;
+    // extract values required for formula - secondList
+    const {
+        distance: sDistance,
+        popularity: sPopularity,
+        ratingAverage: sRatingAverage
+    } = secondList.sortingValues;
+
+    const fTotal = (fDistance * fPopularity) + fRatingAverage;
+    const sTotal = (sDistance * sPopularity) + sRatingAverage;
+    return sTotal - fTotal;
 };
 
 /**
@@ -80,5 +108,9 @@ export const sortables: {[index: string]: SortFilterProps} = {
     minCost: {
         title: 'Min Cost',
         filter: sortFilter,
+    },
+    topRestaurant: {
+        title: 'Top Restaurant',
+        filter: topRestaurant,
     }
 };

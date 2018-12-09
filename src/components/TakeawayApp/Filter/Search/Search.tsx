@@ -73,11 +73,11 @@ export class Search extends Filter<SearchProps> {
         // ... should mainly remove elements
 
         // When we don't have a search term, we don't want to filter at all
-        if (!this.searchTerm) {
+        if (!this.searchTerm.trim()) {
             return list;
         }
 
-        const searchTerm = this.searchTerm.toLowerCase();
+        const searchTerm = this.searchTerm.toLowerCase().trim();
         return list.filter(
             (value: RestaurantProps): boolean => {
                 return value.name.toLowerCase().indexOf(searchTerm) >= 0;

@@ -7,13 +7,13 @@ import {RestaurantProps} from "../../RestaurantList/Restaurant/Restaurant";
 /**
  * Defines props required by Sort.
  *
- * We need filterType to determine which
+ * We need sortType to determine which
  * filter method to run.
  *
  * @interface SortProps
  */
 interface SortProps extends FilterProps {
-    filterType: string,
+    sortType: string,
 }
 
 /**
@@ -35,9 +35,9 @@ export class Sort extends Filter<SortProps> {
      *
      * Determines which filter method to run for sorting.
      *
-     * @property filterType
+     * @property sortType
      */
-    filterType: string;
+    sortType: string;
 
     /**
      * Sort constructor.
@@ -49,7 +49,7 @@ export class Sort extends Filter<SortProps> {
     constructor(props: any) {
         super(props);
 
-        this.filterType = this.props.filterType;
+        this.sortType = this.props.sortType;
         this.sortables = Object.keys(sortables).map((key) => {
             return (
                 <option
@@ -63,6 +63,15 @@ export class Sort extends Filter<SortProps> {
     }
 
     /**
+     * Set the sort type.
+     *
+     * @param sortType
+     */
+    setSortType(sortType: string) {
+        this.sortType = sortType;
+    }
+
+    /**
      * Apply the sort filter.
      *
      * @param list
@@ -70,9 +79,10 @@ export class Sort extends Filter<SortProps> {
      * @return RestaurantProps
      */
     applyFilter(list: RestaurantProps[]): RestaurantProps[] {
+        const sortType = this.sortType;
 
         list.sort((first: RestaurantProps, second: RestaurantProps): number => {
-            return sortables[this.filterType].filter(first, second, this.filterType);
+            return sortables[sortType].filter(first, second, sortType);
         });
 
         return list;

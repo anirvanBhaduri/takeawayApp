@@ -3,6 +3,9 @@ import * as React from "react";
 import {RestaurantList} from "./RestaurantList/RestaurantList";
 import {Search} from "./Filter/Search/Search";
 import {Sort} from "./Filter/Sort/Sort";
+import {sortables} from "./Filter/Sort/Sortables";
+import {OpeningState} from "./Filter/OpeningState/OpeningState";
+import {Favourite} from "./Filter/Favourite/Favourite";
 
 // The sample data.
 const sample = require('../../../dist/Sample.json');
@@ -48,12 +51,27 @@ export class TakeawayApp extends React.Component {
      *
      * - searchCriteria - a list of search criteria defining what to display
      *                      and the order to display them
+     *                  - the list sorts/filters top down, where top is of least importance and
+     *                      bottom the most
      * - restaurants - a list of restaurants. This is expected to stay constant through
      *                  this app.
      */
     state: TakeawayAppState = {
         filterCriteria: {
-            search: new Search({searchTerm: '', filterHandler: () => {}}),
+            search: new Search({
+                searchTerm: '',
+                filterHandler: () => {}
+            }),
+            sort: new Sort({
+                sortType: Object.keys(sortables)[0],
+                filterHandler: () => {}
+            }),
+            openingState: new OpeningState({
+                filterHandler: () => {}
+            }),
+            favourite: new Favourite({
+                filterHandler: () => {}
+            }),
         },
         restaurants: [],
     };
@@ -72,9 +90,6 @@ export class TakeawayApp extends React.Component {
         const {restaurants} = sample;
         this.state.restaurants = restaurants;
 
-        // Set default sort criteria
-        // ...
-
         // Bind handlers.
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSortChange = this.handleSortChange.bind(this);
@@ -89,15 +104,11 @@ export class TakeawayApp extends React.Component {
      * @param e
      */
     handleSearchChange(e: any) {
-        const {search} = this.state.filterCriteria;
+        const {filterCriteria} = this.state;
 
-        search.setSearchTerm(e.target.value);
+        filterCriteria.search.setSearchTerm(e.target.value);
 
-        this.setState({
-            filterCriteria: {
-                search: search,
-            },
-        });
+        this.setState({filterCriteria: filterCriteria});
     }
 
     /**
@@ -109,7 +120,11 @@ export class TakeawayApp extends React.Component {
     handleSortChange(e: any) {
         // Lets handle the sort selection here.
         // ...
-        console.log(e.target.value);
+        const sortValue = e.target.value;
+        const {filterCriteria} = this.state;
+
+        filterCriteria.sort.setSortType(sortValue);
+        this.setState({filterCriteria: filterCriteria});
     }
 
     /**
@@ -125,7 +140,7 @@ export class TakeawayApp extends React.Component {
         return (
             <div>
                 <Search searchTerm={search.getSearchTerm()} filterHandler={this.handleSearchChange} />
-                <Sort filterType={''} filterHandler={this.handleSortChange} />
+                <Sort sortType={''} filterHandler={this.handleSortChange} />
                 <RestaurantList restaurants={restaurants} filterCriteria={filterCriteria} />
             </div>
         )
