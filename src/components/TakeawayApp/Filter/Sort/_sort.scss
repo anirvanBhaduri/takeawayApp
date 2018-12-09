@@ -9,10 +9,34 @@
 // The sort dropdown's styles
 .sort {
   @include input-styles(28px, 250px);
+  font: inherit;
   background: $takeaway-color;
   color: white;
   outline: none;
   cursor: pointer;
   border-radius: 0.2em;
   font-weight: bold;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: 70%;
+    font-size: inherit;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 70%;
+    font-size: inherit;
+  }
+}
+
+// The sort dropdown option's styles
+.sort {
+  @media screen and (max-width: $screen-break-medium) {
+    width: 70%;
+    font-size: inherit;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 70%;
+    font-size: inherit;
+  }
 }

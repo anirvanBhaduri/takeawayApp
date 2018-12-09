@@ -12,12 +12,32 @@
   padding-top: 10px;
   border: 1px solid $takeaway-color;
   margin: 5px;
+
+  @media screen and (max-width: $screen-break-medium) {
+    padding: 10px;
+    height: auto;
+    width: auto;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    padding: 10px;
+    height: auto;
+    width: auto;
+  }
 }
 
 .restaurant__name {
   float: left;
   width: $app-body-width / 2;
   font-family: inherit;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 50%;
+  }
 }
 
 .restaurant__status {
@@ -25,4 +45,12 @@
   font-style: italic;
   width: $app-body-width / 6;
   font-family: inherit;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 40%;
+  }
 }

@@ -53,6 +53,7 @@ export class Sort extends Filter<SortProps> {
         this.sortables = Object.keys(sortables).map((key) => {
             return (
                 <option
+                    className={'sort__option'}
                     key={key}
                     value={key}
                 >

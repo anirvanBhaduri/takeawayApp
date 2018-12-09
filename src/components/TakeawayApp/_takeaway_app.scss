@@ -17,6 +17,16 @@
   border-radius: 16px;
   padding: 32px;
   text-align: center;
+
+  @media screen and (max-width: $screen-break-medium) {
+    font-size: 1.5em;
+    height: 90vh;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    font-size: 2em;
+    height: 90vh;
+  }
 }
 
 // Title element for takeaway component
@@ -31,4 +41,14 @@
   margin: 0;
   display: inline-block;
   text-align: center;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: $app-body-width - 30px;
+    height: 98%;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: $app-body-width;
+    height: 98%;
+  }
 }

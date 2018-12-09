@@ -9,4 +9,14 @@
 // The Favourite component's styles
 .favourite {
   @extend .sort;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 50%;
+    margin-top: 10px;
+  }
 }

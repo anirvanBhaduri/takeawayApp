@@ -10,10 +10,28 @@
 .search {
   float: left;
   width: 550px;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: 98%;
+    margin: 10px;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 98%;
+    margin: 10px;
+  }
 }
 
 // The search bar's input's styles
 .search__input {
   display: inline-block;
   @include input-styles(28px, 545px);
+
+  @media screen and (max-width: $screen-break-medium) {
+    font-size: inherit;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    font-size: inherit;
+  }
 }

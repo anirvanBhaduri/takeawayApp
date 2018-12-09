@@ -15,4 +15,14 @@
   overflow: hidden;
   overflow-y: scroll;
   height: $app-body-height - 100;
+
+  @media screen and (max-width: $screen-break-medium) {
+    width: 98%;
+    margin: 10px;
+  }
+
+  @media screen and (max-width: $screen-break-small) {
+    width: 98%;
+    margin: 10px;
+  }
 }
