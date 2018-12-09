@@ -1,7 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {RestaurantList} from "./RestaurantList/RestaurantList";
 import {Search} from "./Filter/Search/Search";
+import {Sort} from "./Filter/Sort/Sort";
 
 // The sample data.
 const sample = require('../../../dist/Sample.json');
@@ -13,7 +14,7 @@ const sample = require('../../../dist/Sample.json');
  */
 interface TakeawayAppState {
     restaurants: [];
-    filterCriteria: {};
+    filterCriteria: {[index: string]: any},
 }
 
 /**
@@ -51,7 +52,9 @@ export class TakeawayApp extends React.Component {
      *                  this app.
      */
     state: TakeawayAppState = {
-        filterCriteria: {},
+        filterCriteria: {
+            search: new Search({searchTerm: '', filterHandler: () => {}}),
+        },
         restaurants: [],
     };
 
@@ -66,7 +69,7 @@ export class TakeawayApp extends React.Component {
         super(props);
 
         // Load sample restaurants.
-        const { restaurants } = sample;
+        const {restaurants} = sample;
         this.state.restaurants = restaurants;
 
         // Set default sort criteria
@@ -74,6 +77,7 @@ export class TakeawayApp extends React.Component {
 
         // Bind handlers.
         this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.handleSortChange = this.handleSortChange.bind(this);
     }
 
     /**
@@ -85,29 +89,43 @@ export class TakeawayApp extends React.Component {
      * @param e
      */
     handleSearchChange(e: any) {
-        if (e.valueOf() === null) {
-            // Lets remove the search sort criteria if this is the case.
-            // ...
-        }
+        const {search} = this.state.filterCriteria;
 
-        // Otherwise lets override the sort filter criteria for search.
-        this.setState({});
+        search.setSearchTerm(e.target.value);
+
+        this.setState({
+            filterCriteria: {
+                search: search,
+            },
+        });
+    }
+
+    /**
+     * Using the event, change the sort filterCriteria
+     * to use the updated sort value.
+     *
+     * @param e
+     */
+    handleSortChange(e: any) {
+        // Lets handle the sort selection here.
+        // ...
+        console.log(e.target.value);
     }
 
     /**
      * Render the TakeawayApp.
-     *
-     * TODO: place the search/sort component in the render
      *
      * @return JSX
      */
     render() {
         const filterCriteria = this.state.filterCriteria;
         const restaurants = this.state.restaurants;
+        const search = this.state.filterCriteria.search;
 
         return (
             <div>
-                <Search filterHandler={this.handleSearchChange} />
+                <Search searchTerm={search.getSearchTerm()} filterHandler={this.handleSearchChange} />
+                <Sort filterType={''} filterHandler={this.handleSortChange} />
                 <RestaurantList restaurants={restaurants} filterCriteria={filterCriteria} />
             </div>
         )

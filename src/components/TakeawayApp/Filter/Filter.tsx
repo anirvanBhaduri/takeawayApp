@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {RestaurantProps} from "../RestaurantList/Restaurant/Restaurant";
 
 /**
@@ -9,7 +10,7 @@ import {RestaurantProps} from "../RestaurantList/Restaurant/Restaurant";
  *
  * @interface FilterProps
  */
-interface FilterProps {
+export interface FilterProps {
     filterHandler: (e: any) => void;
 }
 
@@ -18,7 +19,7 @@ interface FilterProps {
  *
  * @class Filter
  */
-export abstract class Filter extends React.Component<FilterProps, {}> {
+export abstract class Filter<T extends FilterProps> extends React.Component<T, {}> {
 
     /**
      * Apply the filter on the restaurant list and return
@@ -28,5 +29,5 @@ export abstract class Filter extends React.Component<FilterProps, {}> {
      *
      * @return RestaurantProps
      */
-    abstract applyFilter(list: RestaurantProps): RestaurantProps;
+    abstract applyFilter(list: RestaurantProps[]): RestaurantProps[];
 }

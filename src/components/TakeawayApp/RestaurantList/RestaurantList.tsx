@@ -14,10 +14,6 @@ export interface RestaurantListProps {
     filterCriteria?: {};
 }
 
-interface RestaurantListState {
-    restaurants: JSX.Element[];
-}
-
 /**
  * The RestaurantList is responsible for arranging
  * a list of restaurants based on a sort criteria.
@@ -31,35 +27,26 @@ interface RestaurantListState {
 export class RestaurantList extends React.Component<RestaurantListProps, {}> {
 
     /**
-     * Component state.
+     * Filter the restaurant list using the
      *
-     * @property state
-     *
-     * - restaurants - this value will be updated whenever the filter
-     *                  criteria changes.
      */
-    state: RestaurantListState = {
+    filter(
         restaurants: [],
-    };
+        criteria: {[index: string]: any}
+    ): JSX.Element[] {
+        let orderedRestaurants = restaurants;
 
-    /**
-     * RestaurantList constructor.
-     *
-     * @param props
-     */
-    constructor(props: RestaurantListProps) {
-        super(props);
+        Object.keys(criteria).map((key: string): void => {
+            orderedRestaurants = criteria[key].applyFilter(orderedRestaurants);
+        });
 
-        this.state.restaurants = this.props.restaurants.map(
-            ({name, status, sortingValues}): JSX.Element => {
-                return <Restaurant
-                    key={name}
-                    name={name}
-                    status={status}
-                    sortingValues={sortingValues}
-                />;
-            }
-        );
+        return orderedRestaurants.map(({name, status}) => {
+            return <Restaurant
+                key={name}
+                name={name}
+                status={status}
+            />
+        });
     }
 
     /**
@@ -68,9 +55,14 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
      * @return JSX
      */
     render() {
+        const restaurants = this.filter(
+            this.props.restaurants,
+            this.props.filterCriteria
+        );
+
         return (
             <div>
-                {this.state.restaurants}
+                {restaurants}
             </div>
         )
     }

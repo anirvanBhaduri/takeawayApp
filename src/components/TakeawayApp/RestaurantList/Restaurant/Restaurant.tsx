@@ -20,12 +20,14 @@ export enum Status {
  *
  * @property string name
  * @property Status status
- * @property array sortingValues // TODO: correct this when sorting is defined
+ * @property SortValues sortingValues
  */
 export interface RestaurantProps {
     name: string;
     status: string;
-    sortingValues?: {}// TODO: correct when sorting interface defined
+    sortingValues?: {
+        [index: string]: number,
+    };
 }
 
 /**
