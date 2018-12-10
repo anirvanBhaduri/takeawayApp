@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {Restaurant, RestaurantProps} from "./Restaurant/Restaurant";
 import {sortables} from "../Filter/Sort/Sortables";
+import {Sort} from "../Filter/Sort/Sort";
 
 /**
  * Defines the format for a RestaurantList object.
@@ -11,10 +12,8 @@ import {sortables} from "../Filter/Sort/Sortables";
  * @property array<Restaurant> An array containing only Restaurants.
  */
 export interface RestaurantListProps {
-    restaurants: [];
-    filterCriteria?: {
-        [index: string]: any;
-    };
+    restaurants: RestaurantProps[];
+    filterCriteria?: {[index: string]: any};
 }
 
 /**
@@ -35,7 +34,7 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
      * @property state
      */
     state: {
-        restaurants: [],
+        restaurants: RestaurantProps[],
     };
 
     /**
@@ -88,11 +87,17 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
      * Filter the restaurant list using the filter criteria
      * passed to this object.
      *
+     * @param restaurants
+     * @param criteria
+     *
      * @return JSX.Element[]
      */
     filter(
-        restaurants: [],
-        criteria: {[index: string]: any}
+        restaurants: RestaurantProps[],
+        criteria: {
+            [index: string]: any;
+            sort?: Sort;
+        }
     ): JSX.Element[] {
         let orderedRestaurants = restaurants;
 
@@ -100,7 +105,8 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
             orderedRestaurants = criteria[key].applyFilter(orderedRestaurants);
         });
 
-        const sortType = criteria.sort.getSortType();
+        // Sort may not be provided, hence, we need to default
+        const sortType = criteria.sort ? criteria.sort.getSortType() : Object.keys(sortables)[0];
 
         return orderedRestaurants.map((props: RestaurantProps) => {
             return <Restaurant

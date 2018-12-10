@@ -17,7 +17,7 @@ const sample = require('../../../dist/Sample.json');
  */
 interface TakeawayAppState {
     restaurants: [];
-    filterCriteria: {[index: string]: any},
+    filterCriteria: {[index: string]: any};
 }
 
 /**

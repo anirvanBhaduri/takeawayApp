@@ -67,7 +67,7 @@ const unFavouriteMe = 'Un favourite me :(';
  *
  * @return JSX
  */
-export const Favourite = (props: FavouriteProps) => {
+const Favourite = (props: FavouriteProps) => {
     // For simplicity, we are going to make this a text based button
     // instead of an image.
     const favourite: string = props.favourite ? unFavouriteMe : favouriteMe;
