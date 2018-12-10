@@ -85,8 +85,10 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
     }
 
     /**
-     * Filter the restaurant list using the
+     * Filter the restaurant list using the filter criteria
+     * passed to this object.
      *
+     * @return JSX.Element[]
      */
     filter(
         restaurants: [],
@@ -98,18 +100,18 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
             orderedRestaurants = criteria[key].applyFilter(orderedRestaurants);
         });
 
-        const sortValue = criteria.sort.getSortType();
+        const sortType = criteria.sort.getSortType();
 
-        return orderedRestaurants.map(({name, status, favourite, sortingValues}) => {
+        return orderedRestaurants.map((props: RestaurantProps) => {
             return <Restaurant
-                key={name}
-                name={name}
-                status={status}
-                favourite={favourite}
-                sortValue={sortingValues[sortValue]}
-                sortName={sortables[sortValue].title}
+                key={props.name}
+                sortValue={sortables[sortType].sortValue(props, sortType)}
+                sortName={sortables[sortType].title}
                 clickHandler={this.handleFavouriteClick}
-            />
+                favourite={props.favourite}
+                name={props.name}
+                status={props.status}
+            />;
         });
     }
 

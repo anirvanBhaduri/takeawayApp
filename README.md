@@ -44,6 +44,7 @@ Run using
 ```bash
 npm run dev-server
 ```
+Then navigate to [`http://localhost:10590/`](http://localhost:10590/) on your browser.
 
 ## Running Tests
 

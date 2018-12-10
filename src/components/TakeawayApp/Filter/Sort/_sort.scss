@@ -20,6 +20,7 @@
   color: white;
   background: $takeaway-color;
   width: 100%;
+  font-size: inherit;
 }
 
 // The sort dropdown option's styles
@@ -27,4 +28,5 @@
   @include nice-border();
   color: white;
   background: $takeaway-color;
+  font-size: inherit;
 }

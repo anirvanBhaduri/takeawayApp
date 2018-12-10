@@ -58,7 +58,7 @@ const favouriteMe = 'Favourite Me!';
  *
  * @var string
  */
-const unFavouriteMe = 'Un favourite me!';
+const unFavouriteMe = 'Un favourite me :(';
 
 /**
  * Render the favourite button.

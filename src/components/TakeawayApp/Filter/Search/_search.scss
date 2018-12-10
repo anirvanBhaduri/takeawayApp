@@ -17,4 +17,5 @@
   @include nice-border();
   width: $search-input-width;
   height: $search-input-height;
+  font-size: inherit;
 }

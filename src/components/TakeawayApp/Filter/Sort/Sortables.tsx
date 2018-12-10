@@ -16,6 +16,7 @@ export interface SortFilterProps {
         secondList: RestaurantProps,
         sortKey: string
     ) => number;
+    sortValue: (props: RestaurantProps, sortKey: string) => number;
 }
 
 /**
@@ -71,6 +72,20 @@ const topRestaurant = (
 };
 
 /**
+ * Generic sortValue function.
+ *
+ * Gets the sortValue based on a sortKey and a given RestaurantProp.
+ *
+ * @param props
+ * @param sortKey
+ *
+ * @return number
+ */
+const sortValue = (props: RestaurantProps, sortKey: string): number => {
+    return props.sortingValues[sortKey];
+};
+
+/**
  * Sort types.
  *
  * This object defines the title and filter method for the sort
@@ -80,37 +95,54 @@ export const sortables: {[index: string]: SortFilterProps} = {
     bestMatch: {
         title: 'Best Match',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     newest: {
         title: 'Newest',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     ratingAverage: {
         title: 'Rating Average',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     distance: {
         title: 'Distance',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     popularity: {
         title: 'Popularity',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     averageProductPrice: {
         title: 'Average Product Price',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     deliveryCosts: {
         title: 'Delivery Costs',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     minCost: {
         title: 'Min Cost',
         filter: sortFilter,
+        sortValue: sortValue,
     },
     topRestaurant: {
         title: 'Top Restaurant',
         filter: topRestaurant,
+        sortValue: (props: RestaurantProps): number => {
+            const {
+                distance,
+                popularity,
+                ratingAverage
+            } = props.sortingValues;
+
+            return (distance * popularity) + ratingAverage;
+        }
     }
 };
