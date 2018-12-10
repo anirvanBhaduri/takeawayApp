@@ -73,6 +73,15 @@ export class Sort extends Filter<SortProps> {
     }
 
     /**
+     * Get the sort type.
+     *
+     * @return sortType
+     */
+    getSortType() {
+        return this.sortType;
+    }
+
+    /**
      * Apply the sort filter.
      *
      * @param list
@@ -98,9 +107,11 @@ export class Sort extends Filter<SortProps> {
         const handler = this.props.filterHandler;
 
         return (
-            <select className={'sort'} onChange={handler}>
-                {this.sortables}
-            </select>
+            <div className={'sort'} >
+                <select className={'sort__select'} onChange={handler}>
+                    {this.sortables}
+                </select>
+            </div>
         );
     }
 }

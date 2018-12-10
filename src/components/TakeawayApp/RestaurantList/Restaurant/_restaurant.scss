@@ -3,54 +3,34 @@
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
-@import '../../../UI/_colour_constants.scss';
-@import '../../../UI/size_constants';
+@import '../../UI/colours';
+@import '../../UI/dimensions';
+@import '../../UI/mixins';
 
 // The Restaurant's styles
 .restaurant {
-  @include input-styles(30px, $app-body-width - 10);
-  padding-top: 10px;
-  border: 1px solid $takeaway-color;
-  margin: 5px;
+  @include nice-border();
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 5px;
+  overflow: auto;
 
-  @media screen and (max-width: $screen-break-medium) {
-    padding: 10px;
-    height: auto;
-    width: auto;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    padding: 10px;
-    height: auto;
-    width: auto;
+  &:hover {
+    background: $color-dark;
+    color: white;
   }
 }
 
 .restaurant__name {
-  float: left;
-  width: $app-body-width / 2;
-  font-family: inherit;
-
-  @media screen and (max-width: $screen-break-medium) {
-    width: 50%;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: 50%;
-  }
+  @include inline-component();
+  width: 25%;
 }
 
 .restaurant__status {
-  float: left;
-  font-style: italic;
-  width: $app-body-width / 6;
-  font-family: inherit;
+  @include inline-component();
+  width: 25%;
+}
 
-  @media screen and (max-width: $screen-break-medium) {
-    width: 40%;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: 40%;
-  }
+.restaurant__sort {
+  @include inline-component();
 }

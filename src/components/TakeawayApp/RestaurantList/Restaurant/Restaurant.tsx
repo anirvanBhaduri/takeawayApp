@@ -32,12 +32,15 @@ interface FavouriteProps {
  *
  * @interface RestaurantProps
  *
- * @property string name
- * @property Status status
- * @property SortValues sortingValues
+ * @property status
+ * @property sortValue
+ * @property sortName
+ * @property sortingValues
  */
 export interface RestaurantProps extends FavouriteProps {
     status: string;
+    sortValue?: number;
+    sortName?: string;
     sortingValues?: {
         [index: string]: number,
     };
@@ -96,10 +99,16 @@ export const Restaurant = (props: RestaurantProps) => {
     return (
         <div className={'restaurant'} >
             <div className={'restaurant__name'} >
+                <p>Name</p>
                 {props.name}
             </div>
             <div className={'restaurant__status'} >
+                <p>Status</p>
                 {props.status}
+            </div>
+            <div className={'restaurant__sort'} >
+                <p>{props.sortName}</p>
+                {props.sortValue}
             </div>
             <Favourite
                 name={props.name}

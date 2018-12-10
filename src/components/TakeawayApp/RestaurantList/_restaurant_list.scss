@@ -3,26 +3,13 @@
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
-@import '../../UI/_colour_constants.scss';
-@import '../../UI/size_constants';
+@import '../UI/colours';
+@import '../UI/dimensions';
+@import '../UI/mixins';
 
 // The Restaurant List's styles
 .restaurant-list {
-  margin-top: 10px;
-  padding: 0.1em;
-  width: 900px;
-  display: inline-block;
-  overflow: hidden;
+  @include centre-container();
+  height: 80%;
   overflow-y: scroll;
-  height: $app-body-height - 100;
-
-  @media screen and (max-width: $screen-break-medium) {
-    width: 98%;
-    margin: 10px;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: 98%;
-    margin: 10px;
-  }
 }

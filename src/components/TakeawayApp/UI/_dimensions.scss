@@ -1,29 +1,86 @@
-/// Size constants.
+/// Component Dimensions.
 ///
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
-@import 'colour_constants';
-
-/// Generic input styles
+/// -------------
 ///
-/// @param height The height of the input
-/// @param widtht The width of the input
-@mixin input-styles($height, $width) {
-  height: $height;
-  width: $width;
-  background-color: white;
-  font-family: inherit;
-  border: 2px solid $takeaway-color;
-  border-radius: 5px;
-}
+/// App Dimensions
+///
+/// -------------
 
-/// App body height
-$app-body-height: 550px;
+/// App
+$app-height: 94vh;
 
-/// App body width
-$app-body-width: 900px;
+/// App Body
+$app-body-height: 100%;
+$app-body-width: 100%;
+
+/// -------------
+///
+/// Search Dimensions
+///
+/// -------------
+
+/// Search Input
+$search-input-height: 100%;
+$search-input-width: 100%;
+
+/// -------------
+///
+/// Sort Dimensions
+///
+/// -------------
+
+/// Sort
+$sort-height: 100px;
+$sort-width: 100px;
+
+/// Sort Option
+$sort-option-height: 100px;
+$sort-option-width: 100px;
+
+/// -------------
+///
+/// Restaurant Dimensions
+///
+/// -------------
+
+/// RestaurantList
+$restaurant-list-height: 100px;
+$restaurant-list-width: 100px;
+
+/// Restaurant
+$restaurant-height: 100px;
+$restaurant-width: 100px;
+
+/// Restaurant Name
+$restaurant-name-height: 100px;
+$restaurant-name-width: 100px;
+
+/// Restaurant Status
+$restaurant-status-height: 100px;
+$restaurant-status-width: 100px;
+
+/// Restaurant SortValue
+$restaurant-sort-height: 100px;
+$restaurant-sort-width: 100px;
+
+/// -------------
+///
+/// Favourite Dimensions
+///
+/// -------------
+
+/// Favourite
+$favourite-height: 100px;
+$favourite-width: 100px;
+
+/// -------------
+///
+/// Responsive Dimensions
+///
+/// -------------
 
 /// Screen size breaks
-$screen-break-medium: 980px;
-$screen-break-small: 500px;
+$screen-break-width: 768px;

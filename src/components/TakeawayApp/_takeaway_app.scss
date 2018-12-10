@@ -3,29 +3,23 @@
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
-@import '../UI/_colour_constants.scss';
-@import '../UI/_font_constants.scss';
-@import '../UI/size_constants';
+@import 'UI/colours';
+@import 'UI/fonts';
+@import 'UI/dimensions';
 
-// Render main container background to red
+// Render main container
 .takeaway-app {
   background-color: $theme-background;
-  height: $app-body-height;
-  width: auto;
+  height: $app-height;
+  padding: 10px;
   font-family: $container-font-family;
   border: 2px solid $takeaway-color;
   border-radius: 16px;
-  padding: 32px;
   text-align: center;
 
-  @media screen and (max-width: $screen-break-medium) {
-    font-size: 1.5em;
-    height: 90vh;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    font-size: 2em;
-    height: 90vh;
+  @media screen and (min-width: $screen-break-width) {
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }
 
@@ -37,18 +31,8 @@
 // Body element for takeaway component
 .takeaway-app__body {
   width: $app-body-width;
-  height: $app-body-height - 50;
+  height: 90%;
   margin: 0;
   display: inline-block;
   text-align: center;
-
-  @media screen and (max-width: $screen-break-medium) {
-    width: $app-body-width - 30px;
-    height: 98%;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: $app-body-width;
-    height: 98%;
-  }
 }

@@ -1,0 +1,38 @@
+/// Mixins.
+///
+/// @author Anirvan Bhaduri
+/// @since 10th Dec 2018
+
+@import '../UI/colours';
+@import '../UI/dimensions';
+
+/// Add styles for a nice border
+@mixin nice-border() {
+  border: 2px solid $takeaway-color;
+  border-radius: 5px;
+}
+
+/// Style a centre component
+@mixin centre-container() {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: $screen-break-width) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+/// Style a component to be an inline list
+@mixin inline-component() {
+  float: left;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  p {
+    font-size: 0.7em;
+    margin: 0 5px 0 0;
+    font-weight: bold;
+  }
+}

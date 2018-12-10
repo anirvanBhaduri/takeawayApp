@@ -1,8 +1,18 @@
-/// Colour constants.
+/// Colours.
 ///
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
+/// Lets use this for the main app container
+/// background.
 $theme-background: #f8f9fa;
+
+/// Lets use this to have a nice border
+/// and nice background colours
 $takeaway-color: rgba(255, 128, 0,1);
+
+/// Lets use this for our fonts
 $color-dark: #343a40;
+
+/// Lets use this for highlighting things
+$highlight-blue: #00FFEF;

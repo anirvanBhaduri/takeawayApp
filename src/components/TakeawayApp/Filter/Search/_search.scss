@@ -3,35 +3,18 @@
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
-@import '../../../UI/_colour_constants.scss';
-@import '../../../UI/size_constants';
+@import '../../UI/colours';
+@import '../../UI/dimensions';
+@import '../../UI/mixins';
 
-// The search bar's styles
+// The search container's styles
 .search {
-  float: left;
-  width: 550px;
-
-  @media screen and (max-width: $screen-break-medium) {
-    width: 98%;
-    margin: 10px;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: 98%;
-    margin: 10px;
-  }
+  @include centre-container();
 }
 
-// The search bar's input's styles
+// The search bar's styles
 .search__input {
-  display: inline-block;
-  @include input-styles(28px, 545px);
-
-  @media screen and (max-width: $screen-break-medium) {
-    font-size: inherit;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    font-size: inherit;
-  }
+  @include nice-border();
+  width: $search-input-width;
+  height: $search-input-height;
 }

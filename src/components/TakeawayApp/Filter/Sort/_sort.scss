@@ -3,40 +3,28 @@
 /// @author Anirvan Bhaduri
 /// @since 10th Dec 2018
 
-@import '../../../UI/_colour_constants.scss';
-@import '../../../UI/_size_constants.scss';
+@import '../../UI/colours';
+@import '../../UI/dimensions';
+@import '../../UI/mixins';
 
 // The sort dropdown's styles
 .sort {
-  @include input-styles(28px, 250px);
-  font: inherit;
-  background: $takeaway-color;
+  @include centre-container();
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+// The sort select's styles
+.sort__select {
+  @include nice-border();
   color: white;
-  outline: none;
-  cursor: pointer;
-  border-radius: 0.2em;
-  font-weight: bold;
-
-  @media screen and (max-width: $screen-break-medium) {
-    width: 70%;
-    font-size: inherit;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: 70%;
-    font-size: inherit;
-  }
+  background: $takeaway-color;
+  width: 100%;
 }
 
 // The sort dropdown option's styles
-.sort {
-  @media screen and (max-width: $screen-break-medium) {
-    width: 70%;
-    font-size: inherit;
-  }
-
-  @media screen and (max-width: $screen-break-small) {
-    width: 70%;
-    font-size: inherit;
-  }
+.sort__option {
+  @include nice-border();
+  color: white;
+  background: $takeaway-color;
 }

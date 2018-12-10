@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {Restaurant, RestaurantProps} from "./Restaurant/Restaurant";
+import {sortables} from "../Filter/Sort/Sortables";
 
 /**
  * Defines the format for a RestaurantList object.
@@ -11,7 +12,9 @@ import {Restaurant, RestaurantProps} from "./Restaurant/Restaurant";
  */
 export interface RestaurantListProps {
     restaurants: [];
-    filterCriteria?: {};
+    filterCriteria?: {
+        [index: string]: any;
+    };
 }
 
 /**
@@ -95,12 +98,16 @@ export class RestaurantList extends React.Component<RestaurantListProps, {}> {
             orderedRestaurants = criteria[key].applyFilter(orderedRestaurants);
         });
 
-        return orderedRestaurants.map(({name, status, favourite}) => {
+        const sortValue = criteria.sort.getSortType();
+
+        return orderedRestaurants.map(({name, status, favourite, sortingValues}) => {
             return <Restaurant
                 key={name}
                 name={name}
                 status={status}
                 favourite={favourite}
+                sortValue={sortingValues[sortValue]}
+                sortName={sortables[sortValue].title}
                 clickHandler={this.handleFavouriteClick}
             />
         });
