@@ -17,6 +17,14 @@ The frontend look has been kept very simple and aims to demonstrate the way css 
 in a larger project. Usually, one would use css frameworks and build on them. I have decided to go
 for a bare bones approach for this assignment, as I aim to demostrate understanding of sass/css.
 
+You may notice most react files import react as 
+```javascript
+import * as React from 'react';
+```
+This is required by the ts-loader (in my case the awesome-ts-loader, which is very similar apart 
+from a few efficiency tweaks), hence I am having to load the whole module instead of just what I
+need.
+
 ### Prerequisites
 
 You will need `npm`.

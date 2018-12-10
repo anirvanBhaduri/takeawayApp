@@ -7,7 +7,7 @@
     "build": "webpack",
     "dev-server": "webpack-dev-server --port 10590 --progress --colors --hot",
     "test": "jest",
-    "snapshot": "jest --updateSnapshot"
+    "test-snapshot": "jest --updateSnapshot"
   },
   "keywords": [
     "takeaway",
