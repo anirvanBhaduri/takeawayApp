@@ -4,7 +4,7 @@
   "description": "The takeaway assignment.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rsync -a static/* dist/ && webpack",
     "dev-server": "webpack-dev-server --port 10590 --progress --colors --hot",
     "test": "jest",
     "test-snapshot": "jest --updateSnapshot"
@@ -49,8 +49,13 @@
     "react-dom": "^16.6.3"
   },
   "jest": {
-    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"],
-    "moduleFileExtensions": ["tsx", "js"],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "moduleFileExtensions": [
+      "tsx",
+      "js"
+    ],
     "transform": {
       ".tsx$": "ts-jest"
     },
