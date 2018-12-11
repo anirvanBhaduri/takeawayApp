@@ -11,7 +11,7 @@ requirements.
 
 We are also going to omit the use of Redux in this assignment, as it is quite simple and does
 not really require it. If I was to extend the assignment further to have further nested components
-etc, then redux was become essential for good maintainability.
+etc, then redux will become essential for good maintainability.
 
 The frontend look has been kept very simple and aims to demonstrate the way css would be structured
 in a larger project. Usually, one would use css frameworks and build on them. I have decided to go
@@ -55,11 +55,12 @@ npm run test
 
 ### Coding Style
 
-This project uses [`this`](https://github.com/airbnb/javascript/tree/master/react) as its styling guide.
+This project uses the [`airbnb`](https://github.com/airbnb/javascript/tree/master/react) styling guide.
 
 ## Built With
 
 * [Javascript](https://www.javascript.com/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
 
 ## Versions 
