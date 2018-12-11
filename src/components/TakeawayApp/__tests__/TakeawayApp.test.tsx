@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 // SUT
 import {TakeawayApp} from '../TakeawayApp';
-import {Search} from "../Filter/Search/Search";
 
 /**
  * TakeawayApp component tests.
