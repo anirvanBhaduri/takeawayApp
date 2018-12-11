@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component Tests should render correct snapshot of Search Component 1`] = `
+<div
+  className="search"
+>
+  <input
+    className="search__input"
+    onChange={[Function]}
+    placeholder="Search"
+    type="input"
+    value="at"
+  />
+</div>
+`;

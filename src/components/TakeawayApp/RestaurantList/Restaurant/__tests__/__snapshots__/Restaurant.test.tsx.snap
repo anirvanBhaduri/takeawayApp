@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Restaurant Component Tests should render correct snapshot of Restaurant Component 1`] = `
+<div
+  className="restaurant"
+>
+  <div
+    className="restaurant__name"
+  >
+    <p>
+      Name
+    </p>
+    My Restaurant.com!
+  </div>
+  <div
+    className="restaurant__status"
+  >
+    <p>
+      Status
+    </p>
+    open
+  </div>
+  <div
+    className="restaurant__sort"
+  >
+    <p />
+  </div>
+  <Favourite
+    clickHandler={[Function]}
+    name="My Restaurant.com!"
+  />
+</div>
+`;

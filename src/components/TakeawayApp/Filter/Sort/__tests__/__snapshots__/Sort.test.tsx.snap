@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort Component Tests should render correct snapshot of Sort Component 1`] = `
+<div
+  className="sort"
+>
+  <select
+    className="sort__select"
+    onChange={[Function]}
+  >
+    <option
+      className="sort__option"
+      key="bestMatch"
+      value="bestMatch"
+    >
+      Best Match
+    </option>
+    <option
+      className="sort__option"
+      key="newest"
+      value="newest"
+    >
+      Newest
+    </option>
+    <option
+      className="sort__option"
+      key="ratingAverage"
+      value="ratingAverage"
+    >
+      Rating Average
+    </option>
+    <option
+      className="sort__option"
+      key="distance"
+      value="distance"
+    >
+      Distance
+    </option>
+    <option
+      className="sort__option"
+      key="popularity"
+      value="popularity"
+    >
+      Popularity
+    </option>
+    <option
+      className="sort__option"
+      key="averageProductPrice"
+      value="averageProductPrice"
+    >
+      Average Product Price
+    </option>
+    <option
+      className="sort__option"
+      key="deliveryCosts"
+      value="deliveryCosts"
+    >
+      Delivery Costs
+    </option>
+    <option
+      className="sort__option"
+      key="minCost"
+      value="minCost"
+    >
+      Min Cost
+    </option>
+    <option
+      className="sort__option"
+      key="topRestaurant"
+      value="topRestaurant"
+    >
+      Top Restaurant
+    </option>
+  </select>
+</div>
+`;

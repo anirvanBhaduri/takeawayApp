@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Takeaway Component Tests should render correct snapshot 1`] = `
+<div
+  className="takeaway-app"
+>
+  <h2
+    className="takeaway-app__title"
+  >
+    Find a Restaurant
+  </h2>
+  <div
+    className="takeaway-app__body"
+  >
+    <Search
+      filterHandler={[Function]}
+      searchTerm=""
+    />
+    <Sort
+      filterHandler={[Function]}
+      sortType=""
+    />
+    <RestaurantList
+      filterCriteria={
+        Object {
+          "favourite": Favourite {
+            "context": undefined,
+            "props": Object {
+              "filterHandler": [Function],
+            },
+            "refs": Object {},
+            "updater": Object {
+              "enqueueForceUpdate": [Function],
+              "enqueueReplaceState": [Function],
+              "enqueueSetState": [Function],
+              "isMounted": [Function],
+            },
+          },
+          "openingState": OpeningState {
+            "context": undefined,
+            "props": Object {
+              "filterHandler": [Function],
+            },
+            "refs": Object {},
+            "updater": Object {
+              "enqueueForceUpdate": [Function],
+              "enqueueReplaceState": [Function],
+              "enqueueSetState": [Function],
+              "isMounted": [Function],
+            },
+          },
+          "search": Search {
+            "context": undefined,
+            "props": Object {
+              "filterHandler": [Function],
+              "searchTerm": "",
+            },
+            "refs": Object {},
+            "searchTerm": "",
+            "updater": Object {
+              "enqueueForceUpdate": [Function],
+              "enqueueReplaceState": [Function],
+              "enqueueSetState": [Function],
+              "isMounted": [Function],
+            },
+          },
+          "sort": Sort {
+            "context": undefined,
+            "props": Object {
+              "filterHandler": [Function],
+              "sortType": "bestMatch",
+            },
+            "refs": Object {},
+            "sortType": "bestMatch",
+            "sortables": Array [
+              <option
+                className="sort__option"
+                value="bestMatch"
+              >
+                Best Match
+              </option>,
+              <option
+                className="sort__option"
+                value="newest"
+              >
+                Newest
+              </option>,
+              <option
+                className="sort__option"
+                value="ratingAverage"
+              >
+                Rating Average
+              </option>,
+              <option
+                className="sort__option"
+                value="distance"
+              >
+                Distance
+              </option>,
+              <option
+                className="sort__option"
+                value="popularity"
+              >
+                Popularity
+              </option>,
+              <option
+                className="sort__option"
+                value="averageProductPrice"
+              >
+                Average Product Price
+              </option>,
+              <option
+                className="sort__option"
+                value="deliveryCosts"
+              >
+                Delivery Costs
+              </option>,
+              <option
+                className="sort__option"
+                value="minCost"
+              >
+                Min Cost
+              </option>,
+              <option
+                className="sort__option"
+                value="topRestaurant"
+              >
+                Top Restaurant
+              </option>,
+            ],
+            "updater": Object {
+              "enqueueForceUpdate": [Function],
+              "enqueueReplaceState": [Function],
+              "enqueueSetState": [Function],
+              "isMounted": [Function],
+            },
+          },
+        }
+      }
+      restaurants={
+        Array [
+          Object {
+            "name": "Tanoshii Sushi",
+            "sortingValues": Object {
+              "averageProductPrice": 1536,
+              "bestMatch": 0,
+              "deliveryCosts": 200,
+              "distance": 1190,
+              "minCost": 1000,
+              "newest": 96,
+              "popularity": 17,
+              "ratingAverage": 4.5,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "Tandoori Express",
+            "sortingValues": Object {
+              "averageProductPrice": 1146,
+              "bestMatch": 1,
+              "deliveryCosts": 150,
+              "distance": 2308,
+              "minCost": 1300,
+              "newest": 266,
+              "popularity": 123,
+              "ratingAverage": 4.5,
+            },
+            "status": "closed",
+          },
+          Object {
+            "name": "Royal Thai",
+            "sortingValues": Object {
+              "averageProductPrice": 1492,
+              "bestMatch": 2,
+              "deliveryCosts": 150,
+              "distance": 2639,
+              "minCost": 2500,
+              "newest": 133,
+              "popularity": 44,
+              "ratingAverage": 4.5,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "Sushi One",
+            "sortingValues": Object {
+              "averageProductPrice": 1285,
+              "bestMatch": 3,
+              "deliveryCosts": 0,
+              "distance": 1618,
+              "minCost": 1200,
+              "newest": 238,
+              "popularity": 23,
+              "ratingAverage": 4,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "Roti Shop",
+            "sortingValues": Object {
+              "averageProductPrice": 915,
+              "bestMatch": 4,
+              "deliveryCosts": 0,
+              "distance": 2308,
+              "minCost": 2000,
+              "newest": 247,
+              "popularity": 81,
+              "ratingAverage": 4.5,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "Aarti 2",
+            "sortingValues": Object {
+              "averageProductPrice": 922,
+              "bestMatch": 5,
+              "deliveryCosts": 250,
+              "distance": 1605,
+              "minCost": 500,
+              "newest": 153,
+              "popularity": 44,
+              "ratingAverage": 4.5,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "Pizza Heart",
+            "sortingValues": Object {
+              "averageProductPrice": 1103,
+              "bestMatch": 6,
+              "deliveryCosts": 150,
+              "distance": 2453,
+              "minCost": 1500,
+              "newest": 118,
+              "popularity": 9,
+              "ratingAverage": 4,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "Mama Mia",
+            "sortingValues": Object {
+              "averageProductPrice": 912,
+              "bestMatch": 7,
+              "deliveryCosts": 0,
+              "distance": 1396,
+              "minCost": 1000,
+              "newest": 250,
+              "popularity": 6,
+              "ratingAverage": 4,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "Feelfood",
+            "sortingValues": Object {
+              "averageProductPrice": 902,
+              "bestMatch": 8,
+              "deliveryCosts": 150,
+              "distance": 2732,
+              "minCost": 1500,
+              "newest": 163,
+              "popularity": 31,
+              "ratingAverage": 4.5,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "Daily Sushi",
+            "sortingValues": Object {
+              "averageProductPrice": 1327,
+              "bestMatch": 9,
+              "deliveryCosts": 200,
+              "distance": 1911,
+              "minCost": 1000,
+              "newest": 221,
+              "popularity": 6,
+              "ratingAverage": 4,
+            },
+            "status": "closed",
+          },
+          Object {
+            "name": "Pamukkale",
+            "sortingValues": Object {
+              "averageProductPrice": 968,
+              "bestMatch": 10,
+              "deliveryCosts": 0,
+              "distance": 2353,
+              "minCost": 2000,
+              "newest": 201,
+              "popularity": 25,
+              "ratingAverage": 4,
+            },
+            "status": "closed",
+          },
+          Object {
+            "name": "Indian Kitchen",
+            "sortingValues": Object {
+              "averageProductPrice": 1189,
+              "bestMatch": 11,
+              "deliveryCosts": 150,
+              "distance": 2308,
+              "minCost": 1300,
+              "newest": 272,
+              "popularity": 5,
+              "ratingAverage": 4.5,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "CIRO 1939",
+            "sortingValues": Object {
+              "averageProductPrice": 1762,
+              "bestMatch": 12,
+              "deliveryCosts": 99,
+              "distance": 3957,
+              "minCost": 1300,
+              "newest": 231,
+              "popularity": 79,
+              "ratingAverage": 4.5,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "Zenzai Sushi",
+            "sortingValues": Object {
+              "averageProductPrice": 1579,
+              "bestMatch": 13,
+              "deliveryCosts": 0,
+              "distance": 2911,
+              "minCost": 2000,
+              "newest": 155,
+              "popularity": 36,
+              "ratingAverage": 4,
+            },
+            "status": "closed",
+          },
+          Object {
+            "name": "Fes Patisserie",
+            "sortingValues": Object {
+              "averageProductPrice": 1214,
+              "bestMatch": 14,
+              "deliveryCosts": 150,
+              "distance": 2302,
+              "minCost": 1250,
+              "newest": 77,
+              "popularity": 3,
+              "ratingAverage": 4,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "Yvonne's Vispaleis",
+            "sortingValues": Object {
+              "averageProductPrice": 2557,
+              "bestMatch": 15,
+              "deliveryCosts": 150,
+              "distance": 2909,
+              "minCost": 1750,
+              "newest": 150,
+              "popularity": 3,
+              "ratingAverage": 5,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "De Amsterdamsche Tram",
+            "sortingValues": Object {
+              "averageProductPrice": 892,
+              "bestMatch": 304,
+              "deliveryCosts": 0,
+              "distance": 2792,
+              "minCost": 0,
+              "newest": 131,
+              "popularity": 0,
+              "ratingAverage": 0,
+            },
+            "status": "open",
+          },
+          Object {
+            "name": "Lale Restaurant & Snackbar",
+            "sortingValues": Object {
+              "averageProductPrice": 838,
+              "bestMatch": 305,
+              "deliveryCosts": 0,
+              "distance": 2880,
+              "minCost": 0,
+              "newest": 73,
+              "popularity": 0,
+              "ratingAverage": 0,
+            },
+            "status": "order ahead",
+          },
+          Object {
+            "name": "Lunchpakketdienst",
+            "sortingValues": Object {
+              "averageProductPrice": 4465,
+              "bestMatch": 306,
+              "deliveryCosts": 500,
+              "distance": 14201,
+              "minCost": 5000,
+              "newest": 259,
+              "popularity": 0,
+              "ratingAverage": 3.5,
+            },
+            "status": "open",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

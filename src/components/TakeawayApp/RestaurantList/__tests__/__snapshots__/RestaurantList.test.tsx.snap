@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RestaurantList Component Tests should render correct snapshot of RestaurantList 1`] = `
+<div
+  className="restaurant-list"
+>
+  <Component
+    clickHandler={[Function]}
+    sortName="Best Match"
+    sortValue={1}
+  />
+</div>
+`;
