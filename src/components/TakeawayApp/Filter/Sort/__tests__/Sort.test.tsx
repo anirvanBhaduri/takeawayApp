@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {shallow} from "enzyme";
+import {RestaurantProps} from "../../../RestaurantList/Restaurant/Restaurant";
+import {sortables, sortFilter, topRestaurant} from "../Sortables";
 
 // SUT
 import {Sort} from "../Sort";
-import {RestaurantProps} from "../../../RestaurantList/Restaurant/Restaurant";
-import {sortables, sortFilter, topRestaurant} from "../Sortables";
 
 /**
  * An example subset of RestaurantProps for

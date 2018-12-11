@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {shallow} from "enzyme";
-import {Restaurant} from "../Restaurant";
 
 // SUT
+import {Restaurant} from "../Restaurant";
 
 /**
  * Restaurant component tests.

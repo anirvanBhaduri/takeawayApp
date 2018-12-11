@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
+import {RestaurantProps} from "../Restaurant/Restaurant";
+import {Sort} from "../../Filter/Sort/Sort";
 
 // SUT
 import {RestaurantList} from '../RestaurantList';
-import {RestaurantProps} from "../Restaurant/Restaurant";
-import {Sort} from "../../Filter/Sort/Sort";
 
 /**
  * RestaurantList component tests.
