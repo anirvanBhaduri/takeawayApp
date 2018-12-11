@@ -32,7 +32,7 @@ export interface SortFilterProps {
  *
  * @return number
  */
-const sortFilter = (
+export const sortFilter = (
     firstList: RestaurantProps,
     secondList: RestaurantProps,
     sortKey: string
@@ -48,7 +48,7 @@ const sortFilter = (
  *
  * @return number
  */
-const topRestaurant = (
+export const topRestaurant = (
     firstList: RestaurantProps,
     secondList: RestaurantProps
 ): number => {

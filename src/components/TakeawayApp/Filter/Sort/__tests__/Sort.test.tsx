@@ -3,16 +3,43 @@ import {shallow} from "enzyme";
 
 // SUT
 import {Sort} from "../Sort";
+import {RestaurantProps} from "../../../RestaurantList/Restaurant/Restaurant";
+import {sortables, sortFilter, topRestaurant} from "../Sortables";
 
 /**
- * Expected data that is pre sorted. Output from
- * test should result in this expected data.
+ * An example subset of RestaurantProps for
+ * use during tests.
  */
-export const sortedData = [
+const exampleRestaurantProps: RestaurantProps[] = [
     {
-        favourite: false,
-        name: 'what',
-        status: 'open',
+        name: "Tanoshii Sushi",
+        status: "open",
+        clickHandler: () => {},
+        sortingValues: {
+            bestMatch: 0.0,
+            newest: 96.0,
+            ratingAverage: 4.5,
+            distance: 1190,
+            popularity: 17.0,
+            averageProductPrice: 1536,
+            deliveryCosts: 200,
+            minCost: 1000
+        }
+    },
+    {
+        name: "Tandoori Express",
+        status: "closed",
+        clickHandler: () => {},
+        sortingValues: {
+            bestMatch: 1.0,
+            newest: 266.0,
+            ratingAverage: 4.5,
+            distance: 2308,
+            popularity: 123.0,
+            averageProductPrice: 1146,
+            deliveryCosts: 150,
+            minCost: 1300
+        }
     }
 ];
 
@@ -23,38 +50,64 @@ export const sortedData = [
  */
 describe('Sort Component Tests', () => {
 
-    // /**
-    //  * Apply the Sort filter.
-    //  *
-    //  * @covers Sort.applyFilter
-    //  */
-    // it('should apply the search filter to the restaurant props array', () => {
-    //     const search = new Sort({
-    //         searchTerm: 'wh',
-    //         filterHandler: () => {}
-    //     });
-    //
-    //     const sorted = search.applyFilter([
-    //         {
-    //             favourite: false,
-    //             name: 'what',
-    //             status: 'open',
-    //             clickHandler: () => {},
-    //         },
-    //         {
-    //             favourite: true,
-    //             name: 'test',
-    //             status: 'closed',
-    //             clickHandler: () => {},
-    //         }
-    //     ]);
-    //
-    //     // Deep copy check using convoluted cloning logic.
-    //     // I think we need to do this because the objects themselves have interesting
-    //     // props being added to them somehow... perhaps a side effect of
-    //     // using typescript?
-    //     expect(JSON.parse(JSON.stringify(sorted))).toEqual(sortedData);
-    // });
+    /**
+     * Test the Sort filter correctly sorts given RestaurantProps.
+     *
+     * @covers Sortables.sortFilter
+     */
+    it('Should sort given RestaurantProps from highest to lowest', () => {
+        const sortDirection = sortFilter(
+            exampleRestaurantProps[0],
+            exampleRestaurantProps[1],
+            'bestMatch'
+        );
+
+        // The sort direction should be positive, indicating we want the highest value to
+        // go to the top (first entry) of the list.
+        expect(sortDirection).toBeGreaterThan(0);
+        expect(sortDirection).toBe(1);
+    });
+
+    /**
+     * Test the topRestaurant sortFilter correctly calculates
+     * topRestaurant scores.
+     *
+     * @covers Sortables.sortables.topRestaurant.sortValue
+     */
+    it('Should calculate the top restaurant score for ' +
+        'the given restaurant props',
+        () => {
+            const sortValue = sortables.topRestaurant.sortValue(
+                exampleRestaurantProps[0],
+                'topRestaurant'
+            );
+
+            // The sort value should be: 20234.5
+            expect(sortValue).toBe(20234.5);
+        }
+    );
+
+    /**
+     * Test the Top Restaurant Filter correctly sorts given RestaurantProps.
+     *
+     * @covers Sortables.topRestaurant
+     */
+    it('Should sort given RestaurantProps from highest to lowest' +
+        'according to the top restaurant score',
+        () => {
+            const sortDirection = topRestaurant(
+                exampleRestaurantProps[1],
+                exampleRestaurantProps[0]
+            );
+
+            // The sort direction should be negative, indicating we want the highest value to
+            // go to the top (first entry) of the list.
+            //
+            // formula: (distance * popularity) + ratingAverage;
+            expect(sortDirection).toBeLessThan(0);
+            expect(sortDirection).toBe(-263654);
+        }
+    );
 
     /**
      * Sort renders correctly.
